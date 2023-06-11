@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Parámetros Híbridos de Transistor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="number"] {
+      width: 100px;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Parámetros Híbridos de Transistor</h1>
+
+  <label for="hfe">hfe (β) (Ganancia de corriente):</label>
+  <input type="number" id="hfe" min="1" step="0.1">
+  
+  <label for="hie">hie (Impedancia de entrada):</label>
+  <input type="number" id="hie" min="1" step="0.1">
+  
+  <label for="hre">hre (Ganancia de retroalimentación):</label>
+  <input type="number" id="hre" min="1" step="0.1">
+  
+  <label for="hoe">hoe (Impedancia de salida):</label>
+  <input type="number" id="hoe" min="1" step="0.1">
+  
+  <button onclick="calcularParametros()">Calcular</button>
+
+  <h2>Resultados:</h2>
+  <div id="resultados"></div>
+
+  <script>
+    function calcularParametros() {
+      var hfe = parseFloat(document.getElementById('hfe').value);
+      var hie = parseFloat(document.getElementById('hie').value);
+      var hre = parseFloat(document.getElementById('hre').value);
+      var hoe = parseFloat(document.getElementById('hoe').value);
+      
+      var hie_inv = 1 / hie;
+      var hfe_inv = 1 / hfe;
+      var ro = 1 / hoe;
+      
+      var av = hfe * hie_inv;
+      var ai = hfe_inv * hie;
+      var ri = hie_inv;
+      var roe = hre * ro;
+      var gm = hfe / hie;
+
+      var resultados = "<strong>Av (Ganancia de voltaje):</strong> " + av.toFixed(2) + "<br>";
+      resultados += "<strong>Ai (Ganancia de corriente):</strong> " + ai.toFixed(2) + "<br>";
+      resultados += "<strong>Ri (Impedancia de entrada):</strong> " + ri.toFixed(2) + "<br>";
+      resultados += "<strong>Roe (Impedancia de salida):</strong> " + roe.toFixed(2) + "<br>";
+      resultados += "<strong>Gm (Transconductancia):</strong> " + gm.toFixed(2);
+
+      document.getElementById('resultados').innerHTML = resultados;
+    }
+  </script>
+</body>
+</html>
+//////////////////////////////////
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  color: #666;
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 100px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#resultados {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/////////////////////////////////////////////////////
+function calcularParametros() {
+  var hfe = parseFloat(document.getElementById('hfe').value);
+  var hie = parseFloat(document.getElementById('hie').value);
+  var hre = parseFloat(document.getElementById('hre').value);
+  var hoe = parseFloat(document.getElementById('hoe').value);
+  
+  var hie_inv = 1 / hie;
+  var hfe_inv = 1 / hfe;
+  var ro = 1 / hoe;
+  
+  var av = hfe * hie_inv;
+  var ai = hfe_inv * hie;
+  var ri = hie_inv;
+  var roe = hre * ro;
+  var gm = hfe / hie;
+
+  var resultados = "<strong>Av (Ganancia de voltaje):</strong> " + av.toFixed(2) + "<br>";
+  resultados += "<strong>Ai (Ganancia de corriente):</strong> " + ai.toFixed(2) + "<br>";
+  resultados += "<strong>Ri (Impedancia de entrada):</strong> " + ri.toFixed(2) + "<br>";
+  resultados += "<strong>Roe (Impedancia de salida):</strong> " + roe.toFixed(2) + "<br>";
+  resultados += "<strong>Gm (Transconductancia):</strong> " + gm.toFixed(2);
+
+  document.getElementById('resultados').innerHTML = resultados;
+}
+
+tienen que compliar el codigo en esta pagina en el orden
+https://www.sololearn.com/ 
